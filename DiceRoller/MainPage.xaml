@@ -6,47 +6,59 @@
 
 
 
-    <StackLayout >
-
-        <Label Text="ROLADOR DE DADOS" HorizontalOptions="Center" Margin="0,50,0,0" FontSize="Large">
-            <Label.TextColor>
-                black
-            </Label.TextColor>
-        </Label>
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
 
 
-        <Label x:Name="CounterBtn" Text="6"  WidthRequest="100"  TextColor="Black"  VerticalOptions="Center"   HorizontalOptions="Center"  Margin="80,50,0,0"  FontAttributes="Bold"   FontSize="Large" />
+            <Image 
+                x:Name="opa"
+                Source="dice_d4.png"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                />
 
 
-        <Picker x:Name="DiceOptionsPicker"  Title="Selecione um dado"  VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" Margin="0,20,0,0"  TitleColor="Black"    BackgroundColor="Black">
-            <Picker.ItemsSource >
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>4</x:String>
-                    <x:String>6 </x:String>
-                    <x:String>10</x:String>
-                    <x:String>20</x:String>
-                    <x:String>100</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+            <Label
+                x:Name="NumeroSorteado"
+                Text="1"
+                TextColor="Black"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
 
+            <Picker
+                BackgroundColor="Black"
+                TextColor="Black"
+               x:Name="SeletorDeLadosDoDado"
+                Title="Number of sides"
+                 HorizontalOptions="Center">
+                
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>4</x:Int32>
+                        <x:Int32>6</x:Int32>
+                        <x:Int32>8</x:Int32>
+                        <x:Int32>10</x:Int32>
+                        <x:Int32>12</x:Int32>
+                        <x:Int32>20</x:Int32>
+                        <x:Int32>100</x:Int32>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
-
-        <Button 
-                 
-                Text="ROLAR O DADO"
-                 VerticalOptions="Center"
-                  HorizontalOptions="Center"
+            <Button
+               x:Name="SorteadorDeNumeroDoDado"
+                Text="Roll dice!"
+                SemanticProperties.Hint="Roll a virtual dice"
+                Clicked="SortearNumeroAleatorio"
+                HorizontalOptions="Center"
                  TextColor="White"
-                BackgroundColor="black"
-                 Margin="0,50,0,70"
-                FontSize="15"
-              
+                BackgroundColor="black"/>
 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnButtonClicked"
-               
-                 />
-        
-    </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

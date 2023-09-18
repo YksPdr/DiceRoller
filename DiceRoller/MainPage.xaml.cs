@@ -1,43 +1,77 @@
-﻿using System.ComponentModel.Design;
+﻿using System.Xml.Linq;
 
 namespace DiceRoller;
 
 public partial class MainPage : ContentPage
 {
-
     public MainPage()
     {
         InitializeComponent();
+
+      
+
     }
 
-    Random rnd = new Random();
-    public void OnButtonClicked(object sender, EventArgs args)
+    
+    private void SortearNumeroAleatorio(object sender, EventArgs e)
     {
-        string opcao = DiceOptionsPicker.SelectedItem as string;
-        if (opcao == "4")
-        {
-            int sorte = rnd.Next(1, 5);
-            CounterBtn.Text = $"{sorte}";
-        }else if (opcao == "6") 
-        {
-            int sorte = rnd.Next(1, 7);
-            CounterBtn.Text = $"{sorte}";
-        }else if (opcao == "10")
-        {
-            int sorte = rnd.Next(1, 11);
-            CounterBtn.Text = $"{sorte}";
-        }else if (opcao == "20")
-        {
-            int sorte = rnd.Next(1, 21);
-            CounterBtn.Text = $"{sorte}";
-        }else
-        {
-            int sorte = rnd.Next(1, 101);
-            CounterBtn.Text = $"{sorte}";
-        }
+        var maxValue = SeletorDeLadosDoDado.SelectedItem;
+        var numeroSorteado = new Random().Next(1, (int)maxValue + 1);
+
+        NumeroSorteado.Text = numeroSorteado.ToString();
+
+        UpdateDiceImage((int)maxValue);
+
     }
+    private void UpdateDiceImage(int numSides)
+    {
+        string imageName;
+
+        switch (numSides)
+        {
+            case 4:
+                imageName = "dice_d4.png";
+                break;
+            case 6:
+                imageName = "dice_d6.png";
+                break;
+            case 8:
+                imageName = "dice_d8.png";
+                break;
+            case 10:
+                imageName = "dice_d10.png";
+                break;
+            case 12:
+                imageName = "dice_d12.png";
+                break;
+            case 20:
+                imageName = "dice_d20.png";
+                break;
+            case 100:
+                imageName = "dice_d100.png";
+                break;
+            default:
+                imageName = "dice_default.png"; // Defina uma imagem padrão para outros valores
+                break;
+        }
+        opa.Source = new FileImageSource { File = imageName };
+    }
+
+
 }
 
-   
-//if (ctr % 5 == 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
