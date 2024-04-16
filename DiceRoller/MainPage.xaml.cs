@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+﻿
 
 namespace DiceRoller;
 
@@ -7,12 +7,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-
-      
-
     }
-
-    
     private void SortearNumeroAleatorio(object sender, EventArgs e)
     {
         var maxValue = SeletorDeLadosDoDado.SelectedItem;
@@ -54,24 +49,6 @@ public partial class MainPage : ContentPage
                 imageName = "dice_default.png"; // Defina uma imagem padrão para outros valores
                 break;
         }
-        opa.Source = new FileImageSource { File = imageName };
+        opa.Source = new FileImageSource {File = imageName};
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,15 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiceRoller.MainPage"
              BackgroundColor="White">
-
-
-
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
 
             <Image 
                 x:Name="opa"
@@ -19,7 +15,6 @@
                 HeightRequest="200"
                 HorizontalOptions="Center"
                 />
-
 
             <Label
                 x:Name="NumeroSorteado"
@@ -35,7 +30,7 @@
                x:Name="SeletorDeLadosDoDado"
                 Title="Number of sides"
                  HorizontalOptions="Center">
-                
+
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:Int32}">
                         <x:Int32>4</x:Int32>
@@ -60,5 +55,4 @@
 
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
